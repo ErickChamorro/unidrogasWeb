@@ -1,0 +1,10 @@
+.error{
+    color: red;
+    font-family: 'Google Sans', sans-serif;
+}
+
+.caja{
+    width: 50%;
+    padding: 30px;
+    margin-top: 10%;
+}

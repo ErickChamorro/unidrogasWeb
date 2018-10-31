@@ -28,12 +28,13 @@ export class LoginComponent implements OnInit {
       this.respuesta_servidor = true;
 
       this.loginForm = this.formBuilder.group({
-        email: ['', [Validators.required, Validators.email]],
+        username: ['', [Validators.required, Validators.email]],
         password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(20)]]
       });
     }
 
   ngOnInit() {
+    // para desacivar el boton al cargar la pagina
     this.disabled = true;
   }
 
@@ -50,20 +51,35 @@ export class LoginComponent implements OnInit {
       return;
     }
 
-    this.http.post('https://reqres.in/api/login', JSON.stringify(this.loginForm.value),
+    this.http.post('http://192.168.1.62/supervisores_api/public/api/login', JSON.stringify(this.loginForm.value),
     {
       headers: new HttpHeaders({
         Authorization: 'Access',
         'Content-Type': 'application/json'
       })
     }).subscribe(data => {
-      console.log('POST request is successfull', data);
+      const token = data['access_token'];
+      localStorage.setItem('token', token);
       this.router.navigate(['/main']);
+      // this.http
+      // .get('http://192.168.1.62/supervisores_api/public/api/posts', {
+      //   headers: new HttpHeaders({
+      //     Accept: 'application/json',
+      //     Authorization: 'Bearer' + ' ' + localStorage.getItem('token')
+      //   })
+      // })
+      // .subscribe(textos => console.log(textos));
+      console.log('POST request is successfull', data);
+      console.log('status: ', status);
       this.respuesta = data;
       this.respuesta_servidor = false;
     },
     error => {
-      console.log('Error', error);
+      if (error.status === 401) {
+        alert('error 401: unuthorized');
+        localStorage.clear();
+        console.log(error);
+      }
     });
   }
 
