@@ -4,8 +4,6 @@ import { Location } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 
-declare var $: any;
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -20,9 +18,53 @@ export class LoginComponent implements OnInit {
   disabled: boolean;
   data: any;
 
-  constructor() { }
+  constructor(
+    private formBuilder: FormBuilder,
+    public http: HttpClient,
+    public location: Location,
+    public router: Router,
+    route: ActivatedRoute
+    ) {
+      this.respuesta_servidor = true;
+
+      this.loginForm = this.formBuilder.group({
+        email: ['', [Validators.required, Validators.email]],
+        password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(20)]]
+      });
+    }
 
   ngOnInit() {
+    this.disabled = true;
+  }
+
+  get form() {
+    return this.loginForm.controls;
+  }
+
+  iniciarSesion() {
+    this.submitted = true;
+
+    // si formulario es invalido
+    if (this.loginForm.invalid) {
+      alert('aqui falta algo...');
+      return;
+    }
+
+    this.http.post('https://reqres.in/api/login', JSON.stringify(this.loginForm.value),
+    {
+      headers: new HttpHeaders({
+        Authorization: 'Access',
+        'Content-Type': 'application/json'
+      })
+    }).subscribe(data => {
+      console.log('POST request is successfull', data);
+      this.router.navigate(['/main']);
+      this.respuesta = data;
+      this.respuesta_servidor = false;
+    },
+    error => {
+      console.log('Error', error);
+    });
   }
 
 }

@@ -2,10 +2,10 @@
 
   <form [formGroup]="loginForm" (ngSubmit)="iniciarSesion()">
     <div class="form-group">
-      <label for="correo">Correo Electronico:</label>
-      <input type="email" name="correo" id="correo" class="form-control" formControlName="correo">
+      <label for="email">correo Electronico:</label>
+      <input type="email" name="email" id="email" class="form-control" formControlName="email">
     </div>
-    <p class="" *ngIf="loginForm.controls.correo.errors?.required && loginForm.controls.correo.touched">completa este campo.</p>
+    <p class="" *ngIf="loginForm.controls.email.errors?.required && loginForm.controls.email.touched">completa este campo.</p>
 
     <div class="form-group">
       <label for="password">Contraseña:</label>
