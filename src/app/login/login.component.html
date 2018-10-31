@@ -1,3 +1,21 @@
-<p>
-  login works!
-</p>
+<div class="container">
+
+  <form [formGroup]="loginForm" (ngSubmit)="iniciarSesion()">
+    <div class="form-group">
+      <label for="correo">Correo Electronico:</label>
+      <input type="email" name="correo" id="correo" class="form-control" formControlName="correo">
+    </div>
+    <p class="" *ngIf="loginForm.controls.correo.errors?.required && loginForm.controls.correo.touched">completa este campo.</p>
+
+    <div class="form-group">
+      <label for="password">Contraseña:</label>
+      <input type="password" name="password" id="password" class="form-control" formControlName="password">
+    </div>
+    <p class="" *ngIf="loginForm.controls.password.errors?.required && loginForm.controls.password.touched">completa este campo tambien.</p>
+
+    <div class="form-group">
+      <button class="btn btn-success" type="submit" [disabled]="!loginForm.valid">Iniciar sesion</button>
+    </div>
+  </form>
+
+</div>
