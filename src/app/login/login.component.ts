@@ -60,7 +60,6 @@ export class LoginComponent implements OnInit {
     }).subscribe(data => {
       const token = data['access_token'];
       localStorage.setItem('token', token);
-      this.router.navigate(['/main']);
       this.http
       .get('http://192.168.1.82/supervisores_api/public/api/dashboard', {
         headers: new HttpHeaders({
@@ -71,9 +70,9 @@ export class LoginComponent implements OnInit {
       .subscribe(textos => {
         console.log(textos);
         if (textos !== 'ruta/coordinadores') {
-          this.router.navigate(['']);
-          alert('usted no posee el rol de coordinador en este sitio, si usted es supervisor, le invitamos a usar nuestra app');
+          this.router.navigate(['/lost_user']);
         } else {
+          this.router.navigate(['/main']);
           console.log('bienvenido coordinador');
         }
       });
