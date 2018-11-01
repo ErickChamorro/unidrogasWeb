@@ -8,6 +8,7 @@
     font-family: 'Google Sans', sans-serif;
     background-repeat: no-repeat;
     background-size: cover;
+    overflow-x: hidden;
 }
 .error{
     color: red;
