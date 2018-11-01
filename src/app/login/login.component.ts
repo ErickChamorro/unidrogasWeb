@@ -84,12 +84,20 @@ export class LoginComponent implements OnInit {
     },
     error => {
       if (error.status === 500) {
-        alert('error: ' + error.status);
+        swal({
+          title: 'Error',
+          text: 'Error interno del servidor. (internal server) Error: ' + error.status,
+          type: 'error'
+        });
         localStorage.clear();
         console.log(error);
       } else {
         if (error.status === 401) {
-          swal('aviso', 'usuario y/o contraseña incorrecto', 'error');
+          swal({
+            title: 'Error',
+            text: 'Usuario y/o contraseña incorrectos. Error: ' + error.status,
+            type: 'error'
+          });
         }
       }
     });
@@ -100,17 +108,20 @@ export class LoginComponent implements OnInit {
       title: 'Reestablecer contraseña',
       text: 'paso 1: ingrese su correo electronico para mandarte la nueva contraseña, después podras iniciar sesion nuevamente.',
       input: 'text',
+      inputPlaceholder: 'Dirección de correo eléctronico',
+      padding: 70,
       inputAttributes: {
-        autocapitalize: 'off'
+        autocapitalize: 'off',
       },
       showCancelButton: true,
       confirmButtonText: 'Continuar',
+      cancelButtonText: 'Cancelar',
       showLoaderOnConfirm: true,
       allowOutsideClick: false
     }).then((result) => {
       if (result.value) {
         swal({
-          title: 'Aviso',
+          title: 'Exito',
           text: `se ha enviado la peticion a: ${result.value}`,
           type: 'success'
         });
