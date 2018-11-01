@@ -51,7 +51,7 @@ export class LoginComponent implements OnInit {
       return;
     }
 
-    this.http.post('http://192.168.1.62/supervisores_api/public/api/login', JSON.stringify(this.loginForm.value),
+    this.http.post('http://192.168.1.82/supervisores_api/public/api/login', JSON.stringify(this.loginForm.value),
     {
       headers: new HttpHeaders({
         Authorization: 'Access',
@@ -61,22 +61,30 @@ export class LoginComponent implements OnInit {
       const token = data['access_token'];
       localStorage.setItem('token', token);
       this.router.navigate(['/main']);
-      // this.http
-      // .get('http://192.168.1.62/supervisores_api/public/api/posts', {
-      //   headers: new HttpHeaders({
-      //     Accept: 'application/json',
-      //     Authorization: 'Bearer' + ' ' + localStorage.getItem('token')
-      //   })
-      // })
-      // .subscribe(textos => console.log(textos));
-      console.log('POST request is successfull', data);
-      console.log('status: ', status);
-      this.respuesta = data;
-      this.respuesta_servidor = false;
+      this.http
+      .get('http://192.168.1.82/supervisores_api/public/api/dashboard', {
+        headers: new HttpHeaders({
+          Accept: 'application/json',
+          Authorization: 'Bearer' + ' ' + localStorage.getItem('token')
+        })
+      })
+      .subscribe(textos => {
+        console.log(textos);
+        if (textos !== 'ruta/coordinadores') {
+          this.router.navigate(['']);
+          alert('usted no posee el rol de coordinador en este sitio, si usted es supervisor, le invitamos a usar nuestra app');
+        } else {
+          console.log('bienvenido coordinador');
+        }
+      });
+      // console.log('POST request is successfull', data);
+      // console.log('status: ', status);
+      // this.respuesta = data;
+      // this.respuesta_servidor = false;
     },
     error => {
-      if (error.status === 401) {
-        alert('error 401: unuthorized');
+      if (error.status === 401 || error.status === 500) {
+        alert('error: ' + error.status);
         localStorage.clear();
         console.log(error);
       }
