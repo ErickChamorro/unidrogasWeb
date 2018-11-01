@@ -12,8 +12,4 @@ export class MainComponent implements OnInit {
   ngOnInit() {
   }
 
-  cerrarSesion() {
-    localStorage.clear();
-  }
-
 }

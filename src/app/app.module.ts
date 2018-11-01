@@ -10,7 +10,6 @@ import { LoginComponent } from './login/login.component';
 import { RegistroComponent } from './registro/registro.component';
 import { AppRoutingModule } from './app-routing.module';
 import { MainComponent } from './main/main.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { UsuarioperdidoComponent } from './usuarioperdido/usuarioperdido.component';
 
@@ -29,7 +28,6 @@ import { UsuarioperdidoComponent } from './usuarioperdido/usuarioperdido.compone
     ReactiveFormsModule,
     HttpClientModule,
     RouterModule,
-    BrowserAnimationsModule,
     MaterialModule
   ],
   providers: [],
