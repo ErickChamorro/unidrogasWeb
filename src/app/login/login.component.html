@@ -2,7 +2,11 @@
   <div class="row">
     <div class="col-lg-6 col-md-3 col-sm-12 col-xs-12 lado-izquierdo">
     <h1>hola!</h1>
-    <p>sistema de gestion y manejo de usuarios supervisores y planes de trabajo.</p>
+    <p>sistema de gestion y manejo de usuarios supervisores y planes de trabajo.
+      <br>
+      <br>
+      imagen de prueba.
+    </p>
     </div>
     <div class="col-lg-6 col-md-9 col-sm-12 col-xs-12 lado-derecho d-flex justify-content-center">
       <div class="caja">
@@ -21,12 +25,11 @@
           <p class="error" *ngIf="loginForm.controls.password.errors?.required && loginForm.controls.password.touched">completa este campo tambien.</p>
           <br>
           <div class="form-group">
-            <button class="btn btn-success btn-block" type="submit" [disabled]="!loginForm.valid">Iniciar sesion</button>
+            <button id="btnIniciar" mat-raised-button type="submit" [disabled]="!loginForm.valid">Iniciar sesion</button>
           </div>
       
-          <a id="forgot" href="#">¿olvidó su contraseña?</a>
         </form>
-      
+        <button id="forgot" (click)="olvide_mi_contrasenia()">¿olvidó su contraseña?</button>
       </div>
     </div>
   </div>

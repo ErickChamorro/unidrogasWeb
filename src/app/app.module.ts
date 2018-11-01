@@ -12,6 +12,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { MainComponent } from './main/main.component';
 import { MaterialModule } from './material/material.module';
 import { UsuarioperdidoComponent } from './usuarioperdido/usuarioperdido.component';
+import { NavbarComponent } from './main/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { UsuarioperdidoComponent } from './usuarioperdido/usuarioperdido.compone
     LoginComponent,
     RegistroComponent,
     MainComponent,
-    UsuarioperdidoComponent
+    UsuarioperdidoComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

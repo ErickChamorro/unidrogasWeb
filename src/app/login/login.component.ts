@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { HttpClient, HttpResponse, HttpHeaders } from '@angular/common/http';
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -82,10 +83,37 @@ export class LoginComponent implements OnInit {
       // this.respuesta_servidor = false;
     },
     error => {
-      if (error.status === 401 || error.status === 500) {
+      if (error.status === 500) {
         alert('error: ' + error.status);
         localStorage.clear();
         console.log(error);
+      } else {
+        if (error.status === 401) {
+          swal('aviso', 'usuario y/o contraseña incorrecto', 'error');
+        }
+      }
+    });
+  }
+
+  olvide_mi_contrasenia() {
+    swal({
+      title: 'Reestablecer contraseña',
+      text: 'paso 1: ingrese su correo electronico para mandarte la nueva contraseña, después podras iniciar sesion nuevamente.',
+      input: 'text',
+      inputAttributes: {
+        autocapitalize: 'off'
+      },
+      showCancelButton: true,
+      confirmButtonText: 'Continuar',
+      showLoaderOnConfirm: true,
+      allowOutsideClick: false
+    }).then((result) => {
+      if (result.value) {
+        swal({
+          title: 'Aviso',
+          text: `se ha enviado la peticion a: ${result.value}`,
+          type: 'success'
+        });
       }
     });
   }
