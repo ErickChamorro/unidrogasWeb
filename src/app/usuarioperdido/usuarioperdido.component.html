@@ -1,5 +1,14 @@
-<p>
- usted no es usuario tipo coordinador, si usted es supervisor lo invitamos a usar nuestra app.
-</p>
 
-<a [routerLink]="''" (click)="cerrarSesion()">cerrar sesion</a>
+<div class="body">
+    <div id="notfound">
+        <div class="notfound">
+            <div class="notfound-404">
+                <div></div>
+                <h1>404</h1>
+            </div>
+            <h2>PAGINA NO ENCONTRADA</h2>
+            <p>La página que está buscando está eliminada, se cambió de nombre, o está bloqueada temporalemnte.</p>
+            <button mat-raised-button [routerLink]="''" (click)="cerrarSesion()">haz click aqui para regresar a la pagina de inicio</button>
+        </div>
+    </div>
+</div>

@@ -2,15 +2,16 @@
     <button id="toggler" class="navbar-toggler" type="button" (click)="openNav()">
         <span class="navbar-toggler-icon"></span>
     </button>
+    <a href="#"><h3>logo</h3></a>
 </nav>
 
 <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
     <div class="d-flex flex-column">
-        <a id="botones" href="#">About</a>
-        <a id="botones" href="#">Services</a>
-        <a id="botones" href="#">Clients</a>
-        <a id="botones" href="#">Contact</a>
+        <a id="botones" href="#">Registro</a>
+        <a id="botones" href="#">Usuarios</a>
+        <a id="botones" href="#">Reportes</a>
+        <a id="botones" href="#">Configuración</a>
         <a id="botones" [routerLink]="''" (click)="cerrarSesion()">Salir</a>
     </div>
 </div>

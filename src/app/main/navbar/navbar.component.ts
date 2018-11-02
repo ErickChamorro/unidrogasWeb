@@ -20,8 +20,6 @@ export class NavbarComponent implements OnInit {
     document.getElementById('la-navbar').style.marginLeft = '250px';
     document.getElementById('main').style.transition = 'all 0.3s ease-in-out';
     document.getElementById('la-navbar').style.transition = 'all 0.3s ease-in-out';
-    document.body.style.backgroundColor = 'rgba(0,0,0,0.4)';
-    document.body.style.transition = 'all 0.3s ease-in-out';
   }
 
   /* Set the width of the side navigation to 0 */
