@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(public router: Router) { }
 
   ngOnInit() {
+    document.body.style.fontFamily = `'Google Sans', sans-serif`;
   }
   /* Set the width of the side navigation to 250px */
   openNav() {
@@ -28,6 +30,11 @@ export class NavbarComponent implements OnInit {
     document.getElementById('main').style.marginLeft = '0';
     document.getElementById('la-navbar').style.marginLeft = '0';
     document.body.style.backgroundColor = 'white';
+  }
+
+  cerrarSesion() {
+    this.router.navigate(['']);
+    localStorage.clear();
   }
 
 }
