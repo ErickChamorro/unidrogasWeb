@@ -45,6 +45,7 @@ export class LoginComponent implements OnInit {
 
   iniciarSesion() {
     this.submitted = true;
+    this.disabled = true;
 
     // si formulario es invalido
     if (this.loginForm.invalid) {
@@ -90,16 +91,23 @@ export class LoginComponent implements OnInit {
           type: 'error'
         });
         localStorage.clear();
-        console.log(error);
-      } else {
-        if (error.status === 401) {
+        console.log('un 500');
+      } if (error.status === 401) {
           swal({
             title: 'Error',
             text: 'Usuario y/o contraseña incorrectos. Error: ' + error.status,
             type: 'error'
           });
+          console.log('un 401');
+        } else {
+          swal({
+            title: 'Error',
+            text: 'Algo raro pasa... ' + error,
+            type: 'error'
+          });
+          console.clear();
+          console.log('algo pasa con el servidor de alguien...');
         }
-      }
     });
   }
 
