@@ -28,7 +28,6 @@
               "src/styles.css",
               "src/assets/css/pe-icon-7-stroke.css",
               "node_modules/bootstrap/dist/css/bootstrap.css",
-              "src/assets/sass/light-bootstrap-dashboard.scss",
               "src/assets/css/demo.css"
             ],
             "scripts": [
@@ -95,6 +94,7 @@
               "node_modules/jquery/dist/jquery.min.js",
               "node_modules/bootstrap/dist/js/bootstrap.js",
               "node_modules/bootstrap-notify/bootstrap-notify.js",
+              "src/assets/js/light-bootstrap-dashboard.js",
               "node_modules/chartist/dist/chartist.js"
             ],
             "assets": [
@@ -145,5 +145,8 @@
       }
     }
   },
-  "defaultProject": "unidrogasWeb"
+  "defaultProject": "unidrogasWeb",
+  "schematics": {
+    
+  }
 }

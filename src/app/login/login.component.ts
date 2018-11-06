@@ -53,7 +53,7 @@ export class LoginComponent implements OnInit {
       return;
     }
 
-    this.http.post('http://192.168.1.82/supervisores_api/public/api/login', JSON.stringify(this.loginForm.value),
+    this.http.post('http://192.168.1.64/supervisores_api/public/api/login', JSON.stringify(this.loginForm.value),
     {
       headers: new HttpHeaders({
         Authorization: 'Access',
@@ -63,7 +63,7 @@ export class LoginComponent implements OnInit {
       const token = data['access_token'];
       localStorage.setItem('token', token);
       this.http
-      .get('http://192.168.1.82/supervisores_api/public/api/dashboard', {
+      .get('http://192.168.1.64/supervisores_api/public/api/dashboard', {
         headers: new HttpHeaders({
           Accept: 'application/json',
           Authorization: 'Bearer' + ' ' + localStorage.getItem('token')
@@ -91,7 +91,7 @@ export class LoginComponent implements OnInit {
           type: 'error'
         });
         localStorage.clear();
-        console.log('un 500');
+        console.log(error);
       } if (error.status === 401) {
           swal({
             title: 'Error',
@@ -105,8 +105,7 @@ export class LoginComponent implements OnInit {
             text: 'Algo raro pasa... ' + error,
             type: 'error'
           });
-          console.clear();
-          console.log('algo pasa con el servidor de alguien...');
+          console.log('algo pasa con el servidor de alguien...', error);
         }
     });
   }
