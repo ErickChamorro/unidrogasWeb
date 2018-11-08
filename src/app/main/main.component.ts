@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { analyzeAndValidateNgModules } from '@angular/compiler';
+
+declare var $: any;
 
 @Component({
   selector: 'app-main',
@@ -10,6 +13,9 @@ export class MainComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+      $('#sidebarCollapse').on('click', function () {
+          $('#sidebar').toggleClass('active');
+      });
   }
 
 }
