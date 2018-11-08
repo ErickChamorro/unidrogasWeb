@@ -4,11 +4,11 @@
         <!-- sidebar -->
         <nav id="sidebar">
             <div class="sidebar-header">
-                <h3>bootstrap sidebar</h3>
+                <h3>Nombre del coordinador</h3>
             </div>
     
             <ul class="list-unstyled components">
-                <p>dummy heading</p>
+                <p>heading</p>
                 <li class="active">
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
     
@@ -29,7 +29,7 @@
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div class="container-fluid">
                     <div class="navbar-header">
-                        <button type="button" id="sidebarCollapse" class="btn btn-info">
+                        <button type="button" id="sidebarCollapse" class="btn">
                             <i class="navbar-toggler-icon"></i>
                         </button>
                         <a class="navbar-brand" href="">Dashboard</a>
@@ -40,10 +40,10 @@
             <!-- cuerpo -->
             <div class="cuerpo">
                 <div class="row justify-content-around">
-                    <div class="col-lg-5 caja1">
+                    <div class="col-lg-4" *ngFor="let item of data">
                         <div class="card">
                             <div class="card-body">
-                                <div class="card-title">Hola</div>
+                                <div class="card-title">{{item.descripcion_zona}}</div>
                                 <h6 class="card-subtitle mb-2 text-muted">mundo</h6>
                                 <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt tempora, doloribus minus exercise.</p>
                                 <a href="#" class="card-link">Card link</a>
@@ -51,17 +51,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-5 caja2">
-                        <h1>blabalbalbal</h1>
-                    </div>
-                </div>
-                <div class="row">
-                        <div class="col-lg-6 caja3">
-                            <h1>blabla22</h1>
-                        </div>
-                        <div class="col-lg-6 caja4">
-                            <h1>blabalbalbal2222</h1>
-                        </div>
                 </div>
             </div>
         </div>
