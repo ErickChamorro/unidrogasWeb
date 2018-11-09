@@ -13,6 +13,7 @@ import { MainComponent } from './main/main.component';
 import { MaterialModule } from './material/material.module';
 import { UsuarioperdidoComponent } from './usuarioperdido/usuarioperdido.component';
 import { NavbarComponent } from './main/navbar/navbar.component';
+import { ZonaComponent } from './paginas/zona/zona.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { NavbarComponent } from './main/navbar/navbar.component';
     RegistroComponent,
     MainComponent,
     UsuarioperdidoComponent,
-    NavbarComponent
+    NavbarComponent,
+    ZonaComponent
   ],
   imports: [
     BrowserModule,
@@ -35,4 +37,4 @@ import { NavbarComponent } from './main/navbar/navbar.component';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

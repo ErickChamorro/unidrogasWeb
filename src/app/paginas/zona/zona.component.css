@@ -9,7 +9,7 @@
   color: #ffffff;
   min-width: 250px;
   max-width: 250px;
-  height: 100vh;
+  min-height: 100vh;
   transition: all 0.3s;
   z-index: 1;
 }
@@ -87,8 +87,6 @@ a[data-toggle="collapse"] {
 
 .cuerpo {
   padding: 2%;
-  background: darkgray;
-  height: 100vh;
 }
 
 .caja2 {
