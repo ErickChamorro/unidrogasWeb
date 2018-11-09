@@ -44,14 +44,21 @@
         <!-- titulo de seccion -->
         <div class="row">
           <div class="col-lg-12">
-            <h1>aqui va el nombre de la zona</h1>
+            <h1>zona: {{id_zona}}</h1>
             <br>
           </div>
         </div>
 
         <!-- la mera seccion  -->
         <div class="row justify-content-around">
+          <div class="class" *ngFor="let drogueria of zonas">
 
+            {{drogueria.cod_sucursal}}
+            {{drogueria.id_supervisor}}
+            {{drogueria.id_suscursal}}
+            {{drogueria.sucursal}}
+            {{drogueria.supervisor}}
+          </div>
         </div>
       </div>
     </div>

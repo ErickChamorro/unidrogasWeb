@@ -63,8 +63,28 @@ export class MainComponent implements OnInit {
       );
   }
 
-  mandame_a_zona() {
-    this.router.navigate(['/zona']);
+  mandame_a_zona(id_zona: number, zona) {
+    this.router.navigate(['/zona', id_zona]);
+    console.log(id_zona);
+    this.http
+      .get(
+        `http://192.168.1.64/supervisores_api/public/api/sucursalesZona/${id_zona}`,
+        {
+          headers: new HttpHeaders({
+            Accept: 'application/json',
+            Authorization: 'Bearer' + ' ' + localStorage.getItem('token')
+          })
+        }
+      )
+      .subscribe(texto => {
+        console.log(zona);
+        console.log(texto);
+      });
+  }
+
+  cerrarSesion() {
+    this.router.navigate(['']);
+    localStorage.clear();
   }
 }
 

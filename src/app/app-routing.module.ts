@@ -15,7 +15,8 @@ const APP_ROUTES: Routes = [
   { path: 'lost_user', component: UsuarioperdidoComponent },
 
   // MAS PAGINAS
-  { path: 'zona', component: ZonaComponent },
+  // { path: 'zona', component: ZonaComponent },
+  { path: 'zona/:id', component: ZonaComponent },
 
   // en caso de que se quiera acceder  un link que no exista te mande al link principal que es el login
   // como por ejemplo si quieres entrar a main sin haber iniciado sesion
